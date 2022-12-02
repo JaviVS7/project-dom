@@ -1,0 +1,249 @@
+/***********RESET***********/
+:root {
+  --main-font: sans-serif;
+  --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --black-color: black;
+  --main-modal-color: rgba(247, 222, 30, 0.95);
+  --second-modal-color: rgba(34, 34, 34, 0.95);
+  --container-width: 1200px;
+}
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**********MENU HAMBURGER********/
+.header {
+  position: sticky;
+  z-index: 997;
+  top: 0;
+  padding: 1rem;
+  background-color: var(--main-color);
+  color: var(--second-color);
+}
+.header h1 {
+  margin: 0 auto;
+  text-align: center;
+}
+.section {
+  padding: 2rem;
+  padding-top: 4rem;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  margin: auto;
+  width: 100%;
+  max-width: var(
+    --container-width
+  ); /*Maximo crecimiento para pantallas mayores de 1200px*/
+  min-height: 100vh; /*Garantiza en cada Seccion que siempre se vea en todo el ViewPort aunque su contenido sea menor*/
+  text-align: center;
+}
+
+.panel {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background-color: var(--second-modal-color);
+  width: 100%;
+
+  /* De Arriba */
+  transform: translate(0, -200%);
+  transition: transform 0.5s ease;
+
+  /* Fade */
+  /* opacity: 0; 
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+  */
+}
+.panel.is-active {
+  transform: translate(0, 0);
+  /* opacity: 1; */
+  /* visibility: visible; */
+}
+.panel-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  right: 1vw;
+  width: 4rem;
+  height: 4rem;
+  outline: 0;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+}
+.panel-btn:hover {
+  cursor: pointer;
+}
+
+.menu {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+.menu a {
+  display: block;
+  width: inherit;
+  padding: 2rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--main-color);
+  transition: all 0.3s ease;
+}
+.menu a:hover {
+  font-weight: bold;
+  color: var(--second-color);
+  background-color: var(--main-modal-color);
+}
+
+/* Eventos del teclado */
+
+.stage {
+  display: flex;
+  min-height: 50vh;
+  background-color: var(--black-color);
+  justify-content: center;
+  align-items: center;
+}
+.ball {
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+/* Scroll Top Button */
+.scroll-top-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  right: calc(1vw + 4.25rem);
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--main-color);
+  outline: 0;
+  border: 0;
+  border-radius: 50%;
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--second-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.scroll-top-btn:hover {
+  background-color: var(--second-color);
+  color: var(--main-color);
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.dark-mode-btn {
+  position: fixed;
+  z-index: 999;
+  width: 4rem;
+  height: 4rem;
+  bottom: 1vh;
+  left: 1vw;
+  background-color: var(--main-color);
+  outline: 0;
+  border: 0;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.dark-mode-btn:hover {
+  background-color: var(--black-color);
+  color: var(--main-color);
+}
+
+.dark-mode {
+  background-color: var(--second-color);
+  color: var(--main-color);
+  transition: all 0.8s ease;
+}
+
+.fa-moon {
+  transition: transform 0.5s ease;
+}
+.fa-sun {
+  transform: rotate(-360deg);
+  transition: transform 1s ease;
+}
+
+/* Network Status */
+
+.online,
+.offline {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem;
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  background-color: green;
+  color: white;
+}
+.offline {
+  background-color: red;
+}
+
+/* Search */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.card {
+  background-color: var(--black-color);
+  color: var(--main-color);
+  transition: all 1s ease;
+}
+.card img {
+  width: 100%;
+}
+
+.card figcaption {
+  padding: 0.5rem;
+}
+.filter {
+  /* display: none; */
+  opacity: 0;
+  visibility: hidden;
+  order: 1;
+}
