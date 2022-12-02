@@ -21,3 +21,4 @@ export default function responsiveTester(idForm) {
     }
   });
 }
+//end
