@@ -1,6 +1,7 @@
 const d = document; // Se declara afuera para que este disponible para ambas function
 export function digitalClock(clock, btnPlay, btnStop) {
   let clockTempo;
+  //listener
   d.addEventListener("click", (e) => {
     if (e.target.matches(btnPlay)) {
       clockTempo = setInterval(() => {
